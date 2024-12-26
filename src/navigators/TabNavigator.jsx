@@ -2,9 +2,12 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/Frontened/HomeScreen';
 import Icon from 'react-native-vector-icons/AntDesign';
-import FavoritesScreen from '../screens/Frontened/FavoritesScreen';
+import Icon1 from 'react-native-vector-icons/MaterialCommunityIcons';
+import FavoritesScreen from '../screens/Frontened/WishListScreen';
 import CartScreen from '../screens/Frontened/CartScreen';
 import ProfileScreen from '../screens/Frontened/ProfileScreen';
+import ShopScreen from '../screens/Frontened/ShopScreen';
+import WishListScreen from '../screens/Frontened/WishListScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +17,7 @@ export default function TabNavigator() {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false, // Hide labels
-        activeTintColor: '#9775FA', // Color when tab is focused
+        // activeTintColor: '#9775FA', // Color when tab is focused
         inactiveTintColor: 'grey', // Color when tab is not focused
         tabBarStyle: {
           backgroundColor: '#fff', // Tab bar background color
@@ -37,7 +40,8 @@ export default function TabNavigator() {
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({ color, size, focused }) => (
+
+          tabBarIcon: ({ size, focused }) => (
             <Icon
               name="home" // Home icon
               color={focused ? '#9775FA' : 'grey'} // Change color based on focus
@@ -48,10 +52,10 @@ export default function TabNavigator() {
       />
 
       <Tab.Screen
-        name="Favorites"
-        component={FavoritesScreen}
+        name="WishList"
+        component={WishListScreen}
         options={{
-          tabBarIcon: ({ color, size, focused }) => (
+          tabBarIcon: ({  size, focused }) => (
             <Icon
               name="hearto" // Heart icon
               color={focused ? '#9775FA' : 'grey'} // Change color based on focus
@@ -62,15 +66,15 @@ export default function TabNavigator() {
       />
 
       <Tab.Screen
-        name="Cart"
-        component={CartScreen}
+        name="Shop"
+        component={ShopScreen}
 
         options={{
-          tabBarIcon: ({ color, size, focused }) => (
-            <Icon
-              name="shoppingcart" // Shopping cart icon
+          tabBarIcon: ({focused }) => (
+            <Icon1
+              name="storefront" // Shopping cart icon
               color={focused ? '#9775FA' : 'grey'} // Change color based on focus
-              size={size}
+              size={26}
             />
           ),
           
